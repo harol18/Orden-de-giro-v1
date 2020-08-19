@@ -18,8 +18,7 @@ namespace Usuarios_planta.Formularios
 {
     public partial class FormOrden : Form
     {
-        //MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
-        MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
         Comandos cmds = new Comandos();
         MySqlDataReader dr;
 
@@ -41,10 +40,16 @@ namespace Usuarios_planta.Formularios
                 Collection.Add(dr.GetString(0));
             }
             TxtNom_entidad1.AutoCompleteCustomSource = Collection;
+            TxtNom_entidad2.AutoCompleteCustomSource = Collection;
+            TxtNom_entidad3.AutoCompleteCustomSource = Collection;
+            TxtNom_entidad4.AutoCompleteCustomSource = Collection;
+            TxtNom_entidad5.AutoCompleteCustomSource = Collection;
+            TxtNom_entidad6.AutoCompleteCustomSource = Collection;
+            TxtNom_entidad7.AutoCompleteCustomSource = Collection;
+            TxtNom_entidad8.AutoCompleteCustomSource = Collection;
             dr.Close();
             con.Close();
 
-            dtpfecha_desembolso.Text="01/01/2020";
         }
        
         private double cpk1, cpk2, cpk3, cpk4, cpk5, cpk6, cpk7, cpk8, cpk9, cpk10, cpktotal=0, cpksaldo=0;
@@ -132,8 +137,17 @@ namespace Usuarios_planta.Formularios
             Txtobligacion6, TxtNom_entidad6, TxtNit6, TxtValor6, Txtobligacion7, TxtNom_entidad7, TxtNit7, TxtValor7,
             Txtobligacion8, TxtNom_entidad8, TxtNit8, TxtValor8, TxtTotal, TxtSaldo, cmbestado, dtpfecha_desembolso, TxtIDfuncionario, TxtNomFuncionario);
 
-            BtnActualizar.Enabled = true;
-            BtnGuardar.Enabled = false;
+            if (TxtNombre.TextLength == 0)
+            {
+                MessageBox.Show("Caso no existe");
+                BtnActualizar.Enabled = false;
+                BtnGuardar.Enabled = true;
+            }
+            else
+            {
+                BtnActualizar.Enabled = true;
+                BtnGuardar.Enabled = false;
+            }
         }
 
         private bool validar()

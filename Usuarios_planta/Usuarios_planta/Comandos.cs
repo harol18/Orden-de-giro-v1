@@ -16,8 +16,8 @@ namespace Usuarios_planta
 {
     class Comandos
     {
-        //MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
-        MySqlConnection con = new MySqlConnection("server=;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        MySqlConnection con = new MySqlConnection("server=localhost;Uid=;password=;database=dblibranza;port=3306;persistsecurityinfo=True;");
+        
 
         public void Insertar_orden(TextBox TxtRadicado, TextBox TxtCedula, TextBox TxtNombre, TextBox TxtCuenta, TextBox TxtEstatura, TextBox TxtPeso, TextBox TxtScoring, TextBox TxtValor_aprobado,
             TextBox TxtPlazo, ComboBox cmbDestino, TextBox TxtRauto, TextBox TxtConvenio, TextBox TxtCod_oficina, TextBox TxtNom_oficina, TextBox TxtCiudad, TextBox TxtId_gestor, TextBox TxtNom_gestor,
